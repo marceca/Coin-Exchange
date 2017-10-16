@@ -1,2 +1,4 @@
 Vagrantfile
 .vagrant/
+.ds_store
+markets/*/cache
