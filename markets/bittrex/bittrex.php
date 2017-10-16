@@ -15,6 +15,7 @@ include 'bittrex_ticker.php';
 			<th>Ask</th>
 			<th>Low Price</th>
 			<th>High Price</th>
+			<th>Volume</th>
 		</tr>
 	</thead>
 	<tbody>

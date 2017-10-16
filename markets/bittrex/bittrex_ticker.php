@@ -29,11 +29,11 @@ curl_close($curl);
 
 $markets = json_decode($markets, true);
 
-$i = 0;
+// $i = 0;
 $bittrex_markets = array();
 foreach($markets as $r) {
-	foreach($r as $v => $value) {
-		$market = $value['MarketName'];
+	foreach($r as $v) {
+		$market = $v['MarketName'];
 		$bittrex_markets[] = $market;
 		
 		// $i++;
@@ -47,10 +47,10 @@ foreach($markets as $r) {
 $num = 0;
 $exchanges = array();
 
-foreach ($bittrex_markets as $value) {
+foreach ($bittrex_markets as $v) {
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
-	  CURLOPT_URL => "https://bittrex.com/api/v1.1/public/getmarketsummary?market=" . $value,
+	  CURLOPT_URL => "https://bittrex.com/api/v1.1/public/getmarketsummary?market=" . $v,
 	  CURLOPT_RETURNTRANSFER => true,
 	  CURLOPT_TIMEOUT => 30,
 	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -63,7 +63,7 @@ foreach ($bittrex_markets as $value) {
 	$err = curl_error($curl);
 
 	$r = json_decode($r, true);
-	$exchanges[$value] = $r;
+	$exchanges[$v] = $r;
 }
 
 curl_close($curl);
