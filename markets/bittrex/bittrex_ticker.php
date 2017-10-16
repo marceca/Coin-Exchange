@@ -31,9 +31,8 @@ $markets = json_decode($markets, true);
 
 $i = 0;
 $bittrex_markets = array();
-print "<pre>";
-foreach($markets as $r => $v) {
-	foreach($v as $value){
+foreach($markets as $r) {
+	foreach($r as $v => $value) {
 		$market = $value['MarketName'];
 		$bittrex_markets[] = $market;
 		
@@ -49,7 +48,6 @@ $num = 0;
 $exchanges = array();
 
 foreach ($bittrex_markets as $value) {
-	// var_dump($value . '<br />');
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 	  CURLOPT_URL => "https://bittrex.com/api/v1.1/public/getmarketsummary?market=" . $value,
