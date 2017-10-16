@@ -29,7 +29,10 @@ curl_close($curl);
 
 $markets = json_decode($markets, true);
 
+// NEED TO ADD CACHE HERE TO SPEED UP PROCESS
+
 // $i = 0;
+$market_cache = new Cache();
 $bittrex_markets = array();
 foreach($markets as $r) {
 	foreach($r as $v) {
