@@ -1,1 +1,0 @@
-{"nfs":{"/var/www/public":{"nfs":{"mount_options":["dmode=777","fmode=666"]},"guestpath":"/var/www/public","hostpath":"/Users/michaelmarceca/Coin-Markets/Exchange-Bot","disabled":false,"type":"nfs","__vagrantfile":true,"map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"1284440917"}}}
