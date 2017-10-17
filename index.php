@@ -9,10 +9,15 @@
 
 </head>
 <body>
-	<button><a href="markets/poloniex/poloniex.php">Poloniex</a></button>
-	<button><a href="markets/kraken/kraken.php">Kraken</a></button>
-	<button><a href="markets/bitfinex/bitfinex.php">Bitfinex</a></button>
-	<button><a href="markets/bittrex/bittrex.php">Bittrex</a></button>
+	<button><a href="exchanges/poloniex/poloniex.php">Poloniex</a></button>
+	<button><a href="exchanges/kraken/kraken.php">Kraken</a></button>
+	<button><a href="exchanges/bitfinex/bitfinex.php">Bitfinex</a></button>
+	<button><a href="exchanges/bittrex/bittrex.php">Bittrex</a></button>
+
+	<br />
+	<br />
+
+	<button><a href="compare.php">Compare</a></button>
 </body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </html>
