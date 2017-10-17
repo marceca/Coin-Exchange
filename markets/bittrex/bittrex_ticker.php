@@ -34,20 +34,23 @@ $markets = json_decode($markets, true);
 // $i = 0;
 $market_cache = new Cache();
 $bittrex_markets = array();
-foreach($markets as $r) {
-	foreach($r as $v) {
-		$market = $v['MarketName'];
-		$bittrex_markets[] = $market;
-		
-		// $i++;
-		// if($i > 50){
-		// 	return;
-		// }
 
+$bittrex_markets = $market_cache->retrieve('market_name');
+if(!$bittrex_markets){
+	foreach($markets as $r) {
+		foreach($r as $v) {
+			$market = $v['MarketName'];
+			$bittrex_markets[] = $market;
+			$market_cache->store('market_name', $bittrex_markets);
+			// $i++;
+			// if($i > 50){
+			// 	return;
+			// }
+
+		}
 	}
 }
 
-$num = 0;
 $exchanges = array();
 
 foreach ($bittrex_markets as $v) {
@@ -62,11 +65,11 @@ foreach ($bittrex_markets as $v) {
 	    "cache-control: no-cache"
 	  ),
 	));
-	$r = curl_exec($curl);
+	$market_values = curl_exec($curl);
 	$err = curl_error($curl);
 
-	$r = json_decode($r, true);
-	$exchanges[$v] = $r;
+	$market_values = json_decode($market_values, true);
+	$exchanges[$v] = $market_values;
 }
 
 curl_close($curl);
