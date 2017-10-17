@@ -26,9 +26,9 @@ $response = json_decode($response, true);
 $markets = array();
 $i = 0;
 print_r('<pre>');
-var_dump($response);exit;
-foreach ($response as $value => $coin) {
-	var_dump($coin['BCHEUR']);
+// var_dump($response['result']);exit;
+foreach ($response as $value) {
+	var_dump($value['BCHEUR']);
 	$i++;
 }
 
