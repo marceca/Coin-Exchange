@@ -76,6 +76,25 @@ $response_bittrex = json_decode($response_bittrex, true);
 $poloniex_diff = ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_poloniex['USDT_BTC']['highestBid']);
 $bitfinex_diff = ($response_bitfinex['ask'] - $response_bitfinex['bid']);
 $bittrex_diff = ($response_bittrex['result'][0]['Ask'] - $response_bittrex['result'][0]['Bid']);
+
+
+if(($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bitfinex['ask'])  > 10 || ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bittrex['result'][0]['Ask']) > 10) {
+	var_dump('Poloniex has an ask greater than 10 more then the others');
+	print_r('<br />' . ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bitfinex['ask']));
+	print_r('<br />' . ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bittrex['result'][0]['Ask']));
+}
+
+if(($response_bitfinex['ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) > 10 || ($response_bitfinex['ask'] - $response_bittrex['result'][0]['Ask']) > 10) {
+	var_dump('Bitfinex has an ask greater than 10 more then the others');
+	print_r('<br />' . ($response_bitfinex['ask'] - $response_poloniex['USDT_BTC']['lowestAsk']));
+	print_r('<br />' . ($response_bitfinex['ask'] - $response_bittrex['result'][0]['Ask']));
+}
+
+if(($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) > 10 || ($response_bittrex['result'][0]['Ask'] - $response_bitfinex['ask']) > 10) {
+	var_dump('Bittrex has an ask greater than 10 more then the others');
+	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowestAsk']));
+	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_bitfinex['ask']));
+}
 ?>
 
 
@@ -132,13 +151,12 @@ $bittrex_diff = ($response_bittrex['result'][0]['Ask'] - $response_bittrex['resu
 	<footer>
 <!-- 	
 		THIS IS FOR RELOAD HAVE IT TURNED OFF WHILE IN PRODUCTION
-		THE 5000 STANDS FOR 5 SECONDS. 1000 WOULD BE 1 SECOND
-<script>
+		THE 5000 STANDS FOR 5 SECONDS. 1000 WOULD BE 1 SECOND 
+	<script>
 		setTimeout(function(){
 		   window.location.reload(1);
-		}, 5000);
+		}, 2000);
 	</script> 
-
 -->
 	</footer>
 
