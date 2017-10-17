@@ -28,9 +28,6 @@ curl_close($curl_poloniex);
 
 $response_poloniex = json_decode($response_poloniex, true);
 
-print_r('<pre><br /><h1>POLONIEX</h1>');
-print_r($response_poloniex['USDT_BTC']);
-print_r('</pre>');
 
 // BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX
 // BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX BITFINEX
@@ -54,9 +51,25 @@ curl_close($curl_bitfinex);
 
 $response_bitfinex = json_decode($response_bitfinex, true);
 
-print_r('<pre><br /><h1>BITFINEX</h1>');
-print_r($response_bitfinex);
-print_r('</pre>');
+
+
+$curl_bittrex = curl_init();
+curl_setopt_array($curl_bittrex, array(
+  CURLOPT_URL => "https://bittrex.com/api/v1.1/public/getmarketsummary?market=USDT-BTC",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "cache-control: no-cache"
+  ),
+));
+$response_bittrex = curl_exec($curl_bittrex);
+$err = curl_error($curl_bittrex);
+
+$response_bittrex = json_decode($response_bittrex, true);
+
+
 ?>
 
 
@@ -83,8 +96,28 @@ print_r('</pre>');
 				<td><?php print_r($response_bitfinex['bid']) ?></td>
 				<td><?php print_r($response_bitfinex['volume']) ?></td>
 			</tr>
+			<tr>
+				<td>Bittrex</td>
+				<td><?php print_r($response_bittrex['result'][0]['Ask']) ?></td>
+				<td><?php print_r($response_bittrex['result'][0]['Bid']) ?></td>
+				<td><?php print_r($response_bittrex['result'][0]['Volume']) ?></td>
+			</tr>
 		</tbody>
 	</table>
+
+	<?php
+		print_r('<pre><h1>POLONIEX</h1>');
+		print_r($response_poloniex['USDT_BTC']);
+		print_r('</pre>');
+
+		print_r('<pre><h1>BITFINEX</h1>');
+		print_r($response_bitfinex);
+		print_r('</pre>');
+
+		print_r('<pre><h1>BITTREX</h1>');
+		var_dump($response_bittrex);
+		print_r('</pre>');
+	?>
 
 	<footer>
 <!-- 	
