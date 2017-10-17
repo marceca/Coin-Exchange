@@ -51,6 +51,10 @@ if(!$bittrex_markets){
 	}
 }
 
+// https://bittrex.com/api/v1.1/public/getticker?market= 
+// this is for a smaller amount of data to possibly
+// help speed up the process
+
 $exchanges = array();
 
 foreach ($bittrex_markets as $v) {

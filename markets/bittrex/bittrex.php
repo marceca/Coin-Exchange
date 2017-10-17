@@ -22,11 +22,9 @@ include 'bittrex_ticker.php';
 	<?php foreach ($exchanges as $exchanges_symbol => $exchanges_data): ?>
 		<tr>
 			<td>Coin: <?php print $exchanges_symbol; ?></td>
-			<td>Bid: <?php print $exchanges_data['result'][0]['Bid']; ?></td>
-			<td>Ask: <?php print $exchanges_data['result'][0]['Ask']; ?></td>
-			<td>Low: <?php print $exchanges_data['result'][0]['Low']; ?></td>
-			<td>High: <?php print $exchanges_data['result'][0]['High']; ?></td>
-			<td>Volume: <?php print $exchanges_data['result'][0]['Volume']; ?></td>
+			<td>Bid: <?php print $exchanges_data['result']['Bid']; ?></td>
+			<td>Ask: <?php print $exchanges_data['result']['Ask']; ?></td>
+			<td>Last: <?php print $exchanges_data['result']['Last']; ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
