@@ -70,6 +70,12 @@ $err = curl_error($curl_bittrex);
 $response_bittrex = json_decode($response_bittrex, true);
 
 
+// THE DIFFERENCE BETWEEN ASK AND BID FOR EACH MARKET
+// THE DIFFERENCE BETWEEN ASK AND BID FOR EACH MARKET
+// THE DIFFERENCE BETWEEN ASK AND BID FOR EACH MARKET
+$poloniex_diff = ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_poloniex['USDT_BTC']['highestBid']);
+$bitfinex_diff = ($response_bitfinex['ask'] - $response_bitfinex['bid']);
+$bittrex_diff = ($response_bittrex['result'][0]['Ask'] - $response_bittrex['result'][0]['Bid']);
 ?>
 
 
@@ -81,6 +87,7 @@ $response_bittrex = json_decode($response_bittrex, true);
 				<th>Ask</th>
 				<th>Bid</th>
 				<th>Volume</th>
+				<th>Difference ASK-BID</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -89,18 +96,21 @@ $response_bittrex = json_decode($response_bittrex, true);
 				<td><?php print_r($response_poloniex['USDT_BTC']['lowestAsk']) ?></td>
 				<td><?php print_r($response_poloniex['USDT_BTC']['highestBid']) ?></td>
 				<td><?php print_r($response_poloniex['USDT_BTC']['baseVolume']) ?></td>
+				<td><?php print_r($poloniex_diff) ?></td>
 			</tr>
 			<tr>
 				<td>Bitfinex</td>
 				<td><?php print_r($response_bitfinex['ask']) ?></td>
 				<td><?php print_r($response_bitfinex['bid']) ?></td>
 				<td><?php print_r($response_bitfinex['volume']) ?></td>
+				<td><?php print_r($bitfinex_diff) ?></td>
 			</tr>
 			<tr>
 				<td>Bittrex</td>
 				<td><?php print_r($response_bittrex['result'][0]['Ask']) ?></td>
 				<td><?php print_r($response_bittrex['result'][0]['Bid']) ?></td>
 				<td><?php print_r($response_bittrex['result'][0]['Volume']) ?></td>
+				<td><?php print_r($bittrex_diff) ?></td>
 			</tr>
 		</tbody>
 	</table>
