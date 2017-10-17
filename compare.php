@@ -4,7 +4,7 @@
 <br />
 <?php
 
-// include 'exchanges/poloniex/poloniex.php';
+
 include 'exchanges/poloniex/poloniex_ticker.php';
 
 foreach($response as $coin => $val) {
