@@ -1,0 +1,29 @@
+<head>
+	<link rel="import" href="/USDT_BTC.php">
+</head>
+
+	<h1 style="text-align: center;">Compare Exchanges for USD to BTC</h1><div">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Exchange</th>
+				<th>Ask</th>
+				<th>Bid</th>
+				<th>Volume</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Poloniex</td>
+				<td><?php print_r($response_poloniex['USDT_BTC']['lowestAsk']) ?></td>
+				<td><?php print_r($response_poloniex['USDT_BTC']['highestBid']) ?></td>
+				<td><?php print_r($response_poloniex['USDT_BTC']['baseVolume']) ?></td>
+			</tr>
+			<tr>
+				<td>Bitfinex</td>
+				<td><?php print_r($response_bitfinex['ask']) ?></td>
+				<td><?php print_r($response_bitfinex['bid']) ?></td>
+				<td><?php print_r($response_bitfinex['volume']) ?></td>
+			</tr>
+		</tbody>
+	</table>

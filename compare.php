@@ -1,4 +1,4 @@
-<?php include 'partials/header.php' ?>
+<?php include 'partials/header.html' ?>
 <br />
 <br />
 <br />
@@ -8,7 +8,7 @@
 include 'exchanges/poloniex/poloniex_ticker.php';
 
 foreach($response as $coin => $val) {
-	print_r('<button><a href= markets/' . $coin . '.php>' . $coin . '</a></button><br />');	
+	print_r('<button><a href= markets/' . $coin . '/' .$coin . '.php>' . $coin . '</a></button><br />');	
 }
 
 ?>

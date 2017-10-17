@@ -3,7 +3,7 @@ include 'bittrex_ticker.php';
 ?>
 
 
-<?php include __DIR__ . '/../../partials/header.php' ?>
+<?php include __DIR__ . '/../../partials/header.html' ?>
 
 <h1 style="text-align: center; padding-bottom: 20px;">BITTREX</h1>
 

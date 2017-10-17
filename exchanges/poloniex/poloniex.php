@@ -3,7 +3,7 @@ include 'poloniex_ticker.php';
 ?>
 
 
-<?php include __DIR__ . '/../../partials/header.php' ?>
+<?php include __DIR__ . '/../../partials/header.html' ?>
 
 <h1 style="text-align: center;">POLONIEX</h1><div">
 	<table class="table table-striped">

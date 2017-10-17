@@ -1,4 +1,4 @@
-<?php include '../partials/header.php'; ?>
+<?php include '../../partials/header.html'; ?>
 <br />
 <br />
 <?php
@@ -56,15 +56,14 @@ print_r('</pre>');
 ?>
 
 
-
 	<h1 style="text-align: center;">Compare Exchanges for USD to BTC</h1><div">
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>Exchange</th>
-				<th>Lowest Ask</th>
-				<th>Highest Bid</th>
-				<th>Lowest Ask</th>
+				<th>Ask</th>
+				<th>Bid</th>
+				<th>Volume</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -72,13 +71,27 @@ print_r('</pre>');
 				<td>Poloniex</td>
 				<td><?php print_r($response_poloniex['USDT_BTC']['lowestAsk']) ?></td>
 				<td><?php print_r($response_poloniex['USDT_BTC']['highestBid']) ?></td>
-				<td><?php print_r($response_poloniex['USDT_BTC']['lowestAsk']) ?></td>
+				<td><?php print_r($response_poloniex['USDT_BTC']['baseVolume']) ?></td>
 			</tr>
 			<tr>
 				<td>Bitfinex</td>
 				<td><?php print_r($response_bitfinex['ask']) ?></td>
 				<td><?php print_r($response_bitfinex['bid']) ?></td>
-				<td><?php print_r($response_bitfinex['low']) ?></td>
+				<td><?php print_r($response_bitfinex['volume']) ?></td>
 			</tr>
 		</tbody>
 	</table>
+
+	<footer>
+<!-- 	
+		THIS IS FOR RELOAD HAVE IT TURNED OFF WHILE IN PRODUCTION
+<script>
+		setTimeout(function(){
+		   window.location.reload(1);
+		}, 5000);
+	</script> 
+
+-->
+	</footer>
+
+
