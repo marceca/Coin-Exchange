@@ -82,18 +82,21 @@ if(($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bitfinex['ask'])  > 
 	var_dump('Poloniex has an ask greater than 10 more then the others');
 	print_r('<br />' . ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bitfinex['ask']));
 	print_r('<br />' . ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bittrex['result'][0]['Ask']));
+	print_r('<br />');
 }
 
 if(($response_bitfinex['ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) > 10 || ($response_bitfinex['ask'] - $response_bittrex['result'][0]['Ask']) > 10) {
 	var_dump('Bitfinex has an ask greater than 10 more then the others');
 	print_r('<br />' . ($response_bitfinex['ask'] - $response_poloniex['USDT_BTC']['lowestAsk']));
 	print_r('<br />' . ($response_bitfinex['ask'] - $response_bittrex['result'][0]['Ask']));
+	print_r('<br />');
 }
 
 if(($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) > 10 || ($response_bittrex['result'][0]['Ask'] - $response_bitfinex['ask']) > 10) {
 	var_dump('Bittrex has an ask greater than 10 more then the others');
 	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowestAsk']));
 	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_bitfinex['ask']));
+	print_r('<br />');
 }
 ?>
 
