@@ -13,6 +13,7 @@
 	<button><a href="exchanges/kraken/kraken.php">Kraken</a></button>
 	<button><a href="exchanges/bitfinex/bitfinex.php">Bitfinex</a></button>
 	<button><a href="exchanges/bittrex/bittrex.php">Bittrex</a></button>
+	<button><a href="exchanges/bter/bter.php">Bter</a></button>
 
 	<br />
 	<br />

@@ -151,7 +151,7 @@ if(($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowe
 		print_r('</pre>');
 	?>
 
-	<footer>
+<footer>
 <!-- 	
 		THIS IS FOR RELOAD HAVE IT TURNED OFF WHILE IN PRODUCTION
 		THE 5000 STANDS FOR 5 SECONDS. 1000 WOULD BE 1 SECOND 
@@ -160,7 +160,6 @@ if(($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowe
 		   window.location.reload(1);
 		}, 2000);
 	</script> 
+</footer>
 -->
-	</footer>
-
 
