@@ -1,11 +1,11 @@
 <?php 
-include 'bter_ticker.php';
+include 'gate_ticker.php';
 ?>
 
 
 <?php include __DIR__ . '/../../partials/header.html' ?>
 
-<h1 style="text-align: center;">BTER</h1><div">
+<h1 style="text-align: center;">GATE</h1><div">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -21,7 +21,7 @@ include 'bter_ticker.php';
 			</tr>
 		</thead>
 		<tbody>
-		<?php foreach($bter_ticker as $coin => $val) : ?>
+		<?php foreach($gate_ticker as $coin => $val) : ?>
 			<tr>
 				<td>Coin: <?php print $coin ?></td>
 				<td>Last: <?php print $val["last"] ?></td>

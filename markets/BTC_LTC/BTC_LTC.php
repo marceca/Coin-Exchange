@@ -35,7 +35,7 @@ $response_poloniex = json_decode($response_poloniex, true);
 
 $curl_bitfinex = curl_init();
 curl_setopt_array($curl_bitfinex, array(
-  CURLOPT_URL => "https://api.bitfinex.com/v1/pubticker/btcusd",
+  CURLOPT_URL => "https://api.bitfinex.com/v1/pubticker/ltcbtc",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -57,7 +57,7 @@ $response_bitfinex = json_decode($response_bitfinex, true);
 // BITTREX BITTREX BITTREX BITTREX BITTREX BITTREX BITTREX BITTREX BITTREX BITTREX
 $curl_bittrex = curl_init();
 curl_setopt_array($curl_bittrex, array(
-  CURLOPT_URL => "https://bittrex.com/api/v1.1/public/getmarketsummary?market=USDT-BTC",
+  CURLOPT_URL => "https://bittrex.com/api/v1.1/public/getmarketsummary?market=BTC-LTC",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -78,7 +78,7 @@ $response_bittrex = json_decode($response_bittrex, true);
 // GATE GATE GATE GATE GATE GATE GATE GATE GATE GATE GATE GATE GATE 
 $curl_gate = curl_init();
 curl_setopt_array($curl_gate, array(
-  CURLOPT_URL => "http://data.gate.io/api2/1/ticker/btc_usdt",
+  CURLOPT_URL => "http://data.gate.io/api2/1/ticker/ltc_btc",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -96,39 +96,39 @@ $response_gate = json_decode($response_gate, true);
 // THE DIFFERENCE BETWEEN ASK AND BID FOR EACH MARKET
 // THE DIFFERENCE BETWEEN ASK AND BID FOR EACH MARKET
 // THE DIFFERENCE BETWEEN ASK AND BID FOR EACH MARKET
-$poloniex_diff = ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_poloniex['USDT_BTC']['highestBid']);
+$poloniex_diff = ($response_poloniex['BTC_LTC']['lowestAsk'] - $response_poloniex['BTC_LTC']['highestBid']);
 $bitfinex_diff = ($response_bitfinex['ask'] - $response_bitfinex['bid']);
 $bittrex_diff = ($response_bittrex['result'][0]['Ask'] - $response_bittrex['result'][0]['Bid']);
 $gate_diff = ($response_gate['lowestAsk'] - $response_gate['highestBid']);
 
 
-if(($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bitfinex['ask'])  > 10 || ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bittrex['result'][0]['Ask']) > 10 || ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_gate['lowestAsk']) > 10) {
+if(($response_poloniex['BTC_LTC']['lowestAsk'] - $response_bitfinex['ask'])  > 10 || ($response_poloniex['BTC_LTC']['lowestAsk'] - $response_bittrex['result'][0]['Ask']) > 10 || ($response_poloniex['BTC_LTC']['lowestAsk'] - $response_gate['lowestAsk']) > 10) {
 	var_dump('Poloniex has an ask greater than 10 more then atleast one of the  others');
-	print_r('<br />' . ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bitfinex['ask']) . ' -- Bitfinex');
-	print_r('<br />' . ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_bittrex['result'][0]['Ask']) . ' -- Bittrex');
-	print_r('<br />' . ($response_poloniex['USDT_BTC']['lowestAsk'] - $response_gate['lowestAsk']) . ' -- Gate');
+	print_r('<br />' . ($response_poloniex['BTC_LTC']['lowestAsk'] - $response_bitfinex['ask']) . ' -- Bitfinex');
+	print_r('<br />' . ($response_poloniex['BTC_LTC']['lowestAsk'] - $response_bittrex['result'][0]['Ask']) . ' -- Bittrex');
+	print_r('<br />' . ($response_poloniex['BTC_LTC']['lowestAsk'] - $response_gate['lowestAsk']) . ' -- Gate');
 	print_r('<br />');
 }
 
-if(($response_bitfinex['ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) > 10 || ($response_bitfinex['ask'] - $response_bittrex['result'][0]['Ask']) > 10 || ($response_bitfinex['ask'] - $response_gate['lowestAsk']) > 10) {
+if(($response_bitfinex['ask'] - $response_poloniex['BTC_LTC']['lowestAsk']) > 10 || ($response_bitfinex['ask'] - $response_bittrex['result'][0]['Ask']) > 10 || ($response_bitfinex['ask'] - $response_gate['lowestAsk']) > 10) {
 	var_dump('Bitfinex has an ask greater than 10 more then atleast one of the  others');
-	print_r('<br />' . ($response_bitfinex['ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) . 'Poloniex');
+	print_r('<br />' . ($response_bitfinex['ask'] - $response_poloniex['BTC_LTC']['lowestAsk']) . 'Poloniex');
 	print_r('<br />' . ($response_bitfinex['ask'] - $response_bittrex['result'][0]['Ask']) . ' -- Bittrex');
 	print_r('<br />' . ($response_bitfinex['ask'] - $response_gate['lowestAsk']) . ' -- Gate');
 	print_r('<br />');
 }
 
-if(($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) > 10 || ($response_bittrex['result'][0]['Ask'] - $response_bitfinex['ask']) > 10 || ($response_bittrex['result'][0]['Ask'] - $response_gate['lowestAsk']) > 10) {
+if(($response_bittrex['result'][0]['Ask'] - $response_poloniex['BTC_LTC']['lowestAsk']) > 10 || ($response_bittrex['result'][0]['Ask'] - $response_bitfinex['ask']) > 10 || ($response_bittrex['result'][0]['Ask'] - $response_gate['lowestAsk']) > 10) {
 	var_dump('Bittrex has an ask greater than 10 more then atleast one of the  others');
-	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_poloniex['USDT_BTC']['lowestAsk']) . ' -- Poloniex');
+	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_poloniex['BTC_LTC']['lowestAsk']) . ' -- Poloniex');
 	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_bitfinex['ask']) . ' -- Bitfinex');
 	print_r('<br />' . ($response_bittrex['result'][0]['Ask'] - $response_gate['lowestAsk']) . ' -- Gate');
 	print_r('<br />');
 }
 
-if(($response_gate['lowestAsk'] - $response_poloniex['USDT_BTC']['lowestAsk']) > 10 || ($response_gate['lowestAsk'] - $response_bitfinex['ask']) > 10 || ($response_gate['lowestAsk'] - $response_bittrex['result'][0]['Ask']) > 10) {
+if(($response_gate['lowestAsk'] - $response_poloniex['BTC_LTC']['lowestAsk']) > 10 || ($response_gate['lowestAsk'] - $response_bitfinex['ask']) > 10 || ($response_gate['lowestAsk'] - $response_bittrex['result'][0]['Ask']) > 10) {
 	var_dump('Gate has an ask greater than 10 more then atleast one of the  others');
-	print_r('<br />' . ($response_gate['lowestAsk'] - $response_poloniex['USDT_BTC']['lowestAsk']) . ' -- Poloniex');
+	print_r('<br />' . ($response_gate['lowestAsk'] - $response_poloniex['BTC_LTC']['lowestAsk']) . ' -- Poloniex');
 	print_r('<br />' . ($response_gate['lowestAsk'] - $response_bitfinex['ask']) . ' -- Bitfinex');
 	print_r('<br />' . ($response_gate['lowestAsk'] - $response_bittrex['result'][0]['Ask']) . ' -- Bittrex');
 	print_r('<br />');
@@ -136,7 +136,7 @@ if(($response_gate['lowestAsk'] - $response_poloniex['USDT_BTC']['lowestAsk']) >
 ?>
 
 
-	<h1 style="text-align: center;">Compare Exchanges for USD to BTC</h1><div">
+	<h1 style="text-align: center;">Compare Exchanges for LTC to BTC</h1><div">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -150,9 +150,9 @@ if(($response_gate['lowestAsk'] - $response_poloniex['USDT_BTC']['lowestAsk']) >
 		<tbody>
 			<tr>
 				<td>Poloniex</td>
-				<td><?php print_r($response_poloniex['USDT_BTC']['lowestAsk']) ?></td>
-				<td><?php print_r($response_poloniex['USDT_BTC']['highestBid']) ?></td>
-				<td><?php print_r($response_poloniex['USDT_BTC']['baseVolume']) ?></td>
+				<td><?php print_r($response_poloniex['BTC_LTC']['lowestAsk']) ?></td>
+				<td><?php print_r($response_poloniex['BTC_LTC']['highestBid']) ?></td>
+				<td><?php print_r($response_poloniex['BTC_LTC']['baseVolume']) ?></td>
 				<td><?php print_r($poloniex_diff) ?></td>
 			</tr>
 			<tr>
@@ -181,7 +181,7 @@ if(($response_gate['lowestAsk'] - $response_poloniex['USDT_BTC']['lowestAsk']) >
 
 	<?php
 		print_r('<pre><h1>POLONIEX</h1>');
-		print_r($response_poloniex['USDT_BTC']);
+		print_r($response_poloniex['BTC_LTC']);
 		print_r('</pre>');
 
 		print_r('<pre><h1>BITFINEX</h1>');

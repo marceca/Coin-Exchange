@@ -5,10 +5,10 @@ $curl = curl_init();
 $c = new Cache();
 
 
-$bter_ticker = $c->retrieve('bter_ticker');
-if(!$bter_ticker) {
+// $gate_ticker = $c->retrieve('gate_ticker');
+// if(!$gate_ticker) {
 	curl_setopt_array($curl, array(
-	  CURLOPT_URL => "http://data.bter.com/api2/1/tickers",
+	  CURLOPT_URL => "http://data.gate.io/api2/1/tickers",
 	  CURLOPT_RETURNTRANSFER => true,
 	  CURLOPT_TIMEOUT => 30,
 	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -17,15 +17,15 @@ if(!$bter_ticker) {
 	    "cache-control: no-cache"
 	  ),
 	));
-	$bter_ticker = curl_exec($curl);
-	$c->store('bter_ticker', $bter_ticker);
-}
+	$gate_ticker = curl_exec($curl);
+	// $c->store('gate_ticker', $gate_ticker);
+// }
 
 
 $err = curl_error($curl);
 curl_close($curl);
 
-$bter_ticker = json_decode($bter_ticker, true);
+$gate_ticker = json_decode($gate_ticker, true);
 // print_r('<pre>');
-// var_dump($bter_ticker); exit;
+// var_dump($gate_ticker); exit;
 ?>
